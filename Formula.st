@@ -1,7 +1,7 @@
 Iliad.Widget subclass: Formula [
     | proxy fields |
 	
-    <category: 'Odyssey-Iliad-Formula'>
+    <category: 'Formula'>
     <comment: nil>
 
     Formula class >> on: anObject [

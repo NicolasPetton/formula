@@ -1,7 +1,7 @@
 Iliad.Object subclass: Condition [
     | labelBlock conditionBlock |
 
-    <category: 'Odyssey-Iliad-Formula'>
+    <category: 'Formula'>
     <comment: nil>
 
     conditionBlock [

@@ -1,6 +1,6 @@
 Field subclass: CheckboxField [
 
-    <category: 'Odyssey-Iliad-Formula'>
+    <category: 'Formula'>
     <comment: 'nil'>
 
     fieldContents [

@@ -1,7 +1,7 @@
 Iliad.Widget subclass: Field [
     | conditions errors key labelContents value action |
 
-    <category: 'Odyssey-Iliad-Formula'>
+    <category: 'Formula'>
     <comment: 'nil'>
 
     Field class >> on: aSelector of: anObject [
