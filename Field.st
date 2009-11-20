@@ -87,7 +87,8 @@ Iliad.Widget subclass: Field [
 	<category: 'building'>
 	^[:table |
 	    table tr build: [:tr |
-		tr td build: self labelContents.
+		tr td 
+		    build: self labelContents.
 		tr td 
 		    build: self fieldContents;
 		    build: self errorsContents]
@@ -118,7 +119,7 @@ Iliad.Widget subclass: Field [
 	key ifNil: [key := aSelector].
 	label ifNil: [label := aSelector asString].
 	value := anObject perform: aSelector.
-	acrtion := [:val | 
+	action := [:val | 
 	    anObject perform: (aSelector, ':') asSymbol with: val]
     ]
 ]

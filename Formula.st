@@ -1,5 +1,5 @@
 Iliad.Widget subclass: Formula [
-    | proxy fields |
+    | model fields |
 	
     <category: 'Formula'>
     <comment: nil>
@@ -23,7 +23,7 @@ Iliad.Widget subclass: Formula [
 
     inputOn: aSelector [
 	<category: 'adding'>
-	^self addField: (InputField on: selector of: proxy)
+	^self addField: (InputField on: selector of: model)
     ]
 
     contents [
@@ -48,7 +48,8 @@ Iliad.Widget subclass: Formula [
 
     commit [
 	<category: 'actions'>
-	self proxy commit
+	self fields do: [:each |
+	    each commit]
     ]
 
     validate [
@@ -65,6 +66,6 @@ Iliad.Widget subclass: Formula [
 
     setModel: anObject [
 	<category: 'private'>
-	proxy := Iliad.ModelProxy on: anObject
+	model := anObject
     ]
 ]
