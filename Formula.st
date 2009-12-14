@@ -1,4 +1,4 @@
-Iliad.Widget subclass: Formula [
+Iliad.ILWidget subclass: Formula [
     | model fields |
 	
     <category: 'Formula'>
@@ -23,20 +23,30 @@ Iliad.Widget subclass: Formula [
 
     inputOn: aSelector [
 	<category: 'adding'>
-	^self addField: (InputField on: selector of: model)
+	^self addField: (InputField on: aSelector of: model)
+    ]
+
+    checkboxOn: aSelector [
+	<category: 'adding'>
+	^self addField: (CheckboxField on: aSelector of: model)
+    ]
+
+    passwordOn: aSelector [
+	<category: 'adding'>
+	^self addField: (PasswordField on: aSelector of: model)
     ]
 
     contents [
 	<category: 'building'>
 	^[:e |
-	    e table build: self tableRowsContents]
+	    e table tbody build: self tableContents]
     ]
 
-    tableRowsContents [
+    tableContents [
 	<category: 'building'>
-	^[:table |
+	^[:tbody |
 	    self fields do: [:each |
-		table build: each contents]]
+		tbody build: each contents]]
     ]
 
     save [

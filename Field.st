@@ -1,4 +1,4 @@
-Iliad.Widget subclass: Field [
+Iliad.ILWidget subclass: Field [
     | conditions errors key labelContents value action |
 
     <category: 'Formula'>
@@ -87,11 +87,13 @@ Iliad.Widget subclass: Field [
 	<category: 'building'>
 	^[:table |
 	    table tr build: [:tr |
+		self isValid ifFalse: [
+		    tr cssClass: 'error'].
 		tr td 
 		    build: self labelContents.
 		tr td 
 		    build: self fieldContents;
-		    build: self errorsContents]
+		    build: self errorsContents]]
     ]
 
     fieldContents [
@@ -117,7 +119,7 @@ Iliad.Widget subclass: Field [
     on: aSelector of: anObject [
 	<category: 'private'>
 	key ifNil: [key := aSelector].
-	label ifNil: [label := aSelector asString].
+	labelContents ifNil: [self label: aSelector asString].
 	value := anObject perform: aSelector.
 	action := [:val | 
 	    anObject perform: (aSelector, ':') asSymbol with: val]

@@ -1,4 +1,4 @@
-Iliad.Object subclass: Condition [
+Object subclass: Condition [
     | labelBlock conditionBlock |
 
     <category: 'Formula'>

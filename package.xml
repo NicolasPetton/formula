@@ -1,0 +1,46 @@
+<package>
+  <name>Formula</name>
+  <prereq>Iliad-Core</prereq>
+  <filein>Condition.st</filein>
+  <filein>Field.st</filein>
+  <filein>InputField.st</filein>
+  <filein>CheckboxField.st</filein>
+  <filein>Formula.st</filein>
+  <file>Condition.st</file>
+  <file>Field.st</file>
+  <file>InputField.st</file>
+  <file>CheckboxField.st</file>
+  <file>Formula.st</file>
+</package>
+<package>
+  <name>formula</name>
+  <prereq>Iliad-Core</prereq>
+  <filein>Condition.st</filein>
+  <filein>Field.st</filein>
+  <filein>InputField.st</filein>
+  <filein>PasswordField.st</filein>
+  <filein>CheckboxField.st</filein>
+  <filein>Formula.st</filein>
+  <file>Condition.st</file>
+  <file>Field.st</file>
+  <file>InputField.st</file>
+  <file>PasswordField.st</file>
+  <file>CheckboxField.st</file>
+  <file>Formula.st</file>
+</package>
+<package>
+  <name>Formula</name>
+  <prereq>Iliad-Core</prereq>
+  <filein>Condition.st</filein>
+  <filein>Field.st</filein>
+  <filein>InputField.st</filein>
+  <filein>PasswordField.st</filein>
+  <filein>CheckboxField.st</filein>
+  <filein>Formula.st</filein>
+  <file>Condition.st</file>
+  <file>Field.st</file>
+  <file>InputField.st</file>
+  <file>PasswordField.st</file>
+  <file>CheckboxField.st</file>
+  <file>Formula.st</file>
+</package>
