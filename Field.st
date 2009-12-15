@@ -1,8 +1,8 @@
 Iliad.ILWidget subclass: Field [
-    | conditions errors key labelContents value action |
+    | conditions errors key labelBlock commentBlock value action |
 
     <category: 'Formula'>
-    <comment: 'nil'>
+    <comment: nil>
 
     Field class >> on: aSelector of: anObject [
 	<category: 'instance creation'>
@@ -24,17 +24,33 @@ Iliad.ILWidget subclass: Field [
 
     label: aString [
 	<category: 'accessing'>
-	self labelContents: [:e | e text: aString]
+	self labelBlock: [:e | e text: aString]
     ]
 
-    labelContents: aBlock [
+    labelBlock: aBlock [
 	<category: 'accessing'>
-	labelContents := aBlock
+	labelBlock := aBlock
     ]
 
-    labelContents [
+    labelBlock [
 	<category: 'accessing'>
-	^labelContents
+	^labelBlock
+    ]
+
+    comment: aString [
+	<category: 'accessing'>
+	self commentBlock: [:e | e text: aString]
+    ]
+
+    commentBlock: aBlock [
+	<category: 'accessing'>
+	commentBlock := aBlock
+    ]
+
+    commentBlock [
+	<category: 'accessing'>
+	^commentBlock ifNil: [
+	    [:e |]]
     ]
 
     value [
@@ -90,10 +106,11 @@ Iliad.ILWidget subclass: Field [
 		self isValid ifFalse: [
 		    tr cssClass: 'error'].
 		tr td 
-		    build: self labelContents.
+		    build: self labelBlock.
 		tr td 
 		    build: self fieldContents;
-		    build: self errorsContents]]
+		    build: self commentBlock;
+		    build: self errorsContents;]]
     ]
 
     fieldContents [
@@ -119,7 +136,7 @@ Iliad.ILWidget subclass: Field [
     on: aSelector of: anObject [
 	<category: 'private'>
 	key ifNil: [key := aSelector].
-	labelContents ifNil: [self label: aSelector asString].
+	labelBlock ifNil: [self label: aSelector asString].
 	value := anObject perform: aSelector.
 	action := [:val | 
 	    anObject perform: (aSelector, ':') asSymbol with: val]

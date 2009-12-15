@@ -1,7 +1,7 @@
 Field subclass: InputField [
 
     <category: 'Formula'>
-    <comment: 'nil'>
+    <comment: nil>
 
     fieldContents [
 	<category: 'building'>
