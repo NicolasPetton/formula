@@ -104,13 +104,13 @@ Iliad.ILWidget subclass: Field [
 	^[:table |
 	    table tr build: [:tr |
 		self isValid ifFalse: [
-		    tr cssClass: 'error'].
+		    tr class: 'error'].
 		tr td 
 		    build: self labelBlock.
 		tr td 
 		    build: self fieldContents;
 		    build: self commentBlock;
-		    build: self errorsContents;]]
+		    build: self errorsContents]]
     ]
 
     fieldContents [

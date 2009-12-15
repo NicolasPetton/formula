@@ -28,7 +28,7 @@ Iliad.ILWidget subclass: Formula [
 
     addField: aField [
 	<category: 'adding'>
-	self fields add: aField
+	^self fields add: aField
     ]
 
     inputOn: aSelector [
