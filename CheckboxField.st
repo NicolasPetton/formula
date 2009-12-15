@@ -7,7 +7,7 @@ Field subclass: CheckboxField [
 	<category: 'building'>
 	^[:e | 
 	    e checkbox
-		checked: self value;
+		checked: self value ifNil: [false];
 		action: [:boolean | self value: boolean]]
     ]
 ]

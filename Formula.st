@@ -1,5 +1,5 @@
 Iliad.ILWidget subclass: Formula [
-    | model fields |
+    | model fields buttons |
 	
     <category: 'Formula'>
     <comment: nil>
@@ -14,6 +14,16 @@ Iliad.ILWidget subclass: Formula [
     fields [
 	<category: 'accessing'>
 	^fields ifNil: [fields := OrderedCollection new]
+    ]
+
+    buttons [
+	<category: 'accessing'>
+	^buttons ifNil: [self defaultButtons]
+    ]
+
+    defaultButtons [
+	<category: 'defaults'>
+	^{'save' -> [self save]}
     ]
 
     addField: aField [
@@ -39,7 +49,9 @@ Iliad.ILWidget subclass: Formula [
     contents [
 	<category: 'building'>
 	^[:e |
-	    e table tbody build: self tableContents]
+	    e form build: [:form |
+		form table tbody build: self tableContents.
+		form build: self buttonsContents]]
     ]
 
     tableContents [
@@ -47,6 +59,15 @@ Iliad.ILWidget subclass: Formula [
 	^[:tbody |
 	    self fields do: [:each |
 		tbody build: each contents]]
+    ]
+
+    buttonsContents [
+	<category: 'building'>
+	^[:form |
+	    self buttons do: [:each |
+		form button
+		    text: each key;
+		    action: each value]]
     ]
 
     save [

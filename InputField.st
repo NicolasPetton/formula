@@ -7,7 +7,7 @@ Field subclass: InputField [
 	<category: 'building'>
 	^[:e | 
 	    e input
-		value: self value;
+		value: (self value ifNil: ['']);
 		action: [:val | self value: val]]
     ]
 ]

@@ -80,7 +80,7 @@ Iliad.ILWidget subclass: Field [
 
     commit [
 	<category: 'actions'>
-	self action value: self value
+	action value: self value
     ]
 
     contents [
