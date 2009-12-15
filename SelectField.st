@@ -1,5 +1,5 @@
 Field subclass: SelectField [
-    | options optionLabelBlock |
+    | multiple options optionLabelBlock |
 
     <category: 'Formula'>
     <comment: nil>
@@ -12,6 +12,16 @@ Field subclass: SelectField [
     optionLabelBlock: aBlock [
 	<category: 'accessing'>
 	optionOptionLabelBlock := aBlock
+    ]
+
+    multiple [
+	<category: 'accessing'>
+	^multiple ifNil: [false]
+    ]
+
+    multiple: aBoolean [
+	<category: 'accessing'>
+	multiple := aBoolean
     ]
 
     defaultOptionLabelBlock [
@@ -39,6 +49,8 @@ Field subclass: SelectField [
 	<category: 'building'>
 	^[:e | 
 	    e select build: [:select |
+		self multiple ifTrue: [
+		    select beMultiple].
 		self options do: [:each |
 		    select option 
 			selected: self value = each;
