@@ -63,7 +63,7 @@ Iliad.ILWidget subclass: Formula [
 	<category: 'building'>
 	^[:tbody |
 	    self fields do: [:each |
-		tbody build: each contents]]
+		tbody build: each]]
     ]
 
     buttonsContents [
