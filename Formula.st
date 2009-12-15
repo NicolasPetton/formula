@@ -46,6 +46,11 @@ Iliad.ILWidget subclass: Formula [
 	^self addField: (PasswordField on: aSelector of: model)
     ]
 
+    selectOn: aSelector [
+	<category: 'adding'>
+	^self addField: (SelectField on: aSelector of: model)
+    ]
+
     contents [
 	<category: 'building'>
 	^[:e |
