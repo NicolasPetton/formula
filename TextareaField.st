@@ -1,4 +1,4 @@
-Field subclass: InputField [
+Field subclass: TextareaField [
     | size |
 
     <category: 'Formula'>

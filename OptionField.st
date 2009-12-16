@@ -1,4 +1,4 @@
-Field subclass: SelectField [
+Field subclass: OptionField [
     | options optionLabelBlock |
 
     <category: 'Formula'>
@@ -11,7 +11,7 @@ Field subclass: SelectField [
 
     optionLabelBlock: aBlock [
 	<category: 'accessing'>
-	optionOptionLabelBlock := aBlock
+	optionLabelBlock := aBlock
     ]
 
     defaultOptionLabelBlock [
