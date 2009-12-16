@@ -36,6 +36,11 @@ Iliad.ILWidget subclass: Formula [
 	^self addField: (InputField on: aSelector of: model)
     ]
 
+    textareaOn: aSelector [
+	<category: 'adding'>
+	^self addField: (TextareaField on: aSelector of: model)
+    ]
+
     checkboxOn: aSelector [
 	<category: 'adding'>
 	^self addField: (CheckboxField on: aSelector of: model)

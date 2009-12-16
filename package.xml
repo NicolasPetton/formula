@@ -4,13 +4,19 @@
   <filein>Condition.st</filein>
   <filein>Field.st</filein>
   <filein>InputField.st</filein>
+  <filein>TextareaField.st</filein>
   <filein>PasswordField.st</filein>
   <filein>CheckboxField.st</filein>
+  <filein>OptionField.st</filein>
+  <filein>SelectField.st</filein>
   <filein>Formula.st</filein>
   <file>Condition.st</file>
   <file>Field.st</file>
   <file>InputField.st</file>
+  <file>TextareaField.st</file>
   <file>PasswordField.st</file>
   <file>CheckboxField.st</file>
+  <file>OptionField.st</file>
+  <file>SelectField.st</file>
   <file>Formula.st</file>
 </package>
