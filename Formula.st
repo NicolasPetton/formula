@@ -77,7 +77,9 @@ Iliad.ILWidget subclass: Formula [
 
     save [
 	<category: 'actions'>
-	self validate.
+	self 
+	    validate;
+	    markDirty.
 	self isValid ifTrue: [
 	    self commit]
     ]

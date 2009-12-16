@@ -1,4 +1,4 @@
-Iliad.ILWidget subclass: Field [
+Iliad.ILBuildable subclass: Field [
     | conditions errors key labelBlock commentBlock value action |
 
     <category: 'Formula'>
@@ -91,7 +91,6 @@ Iliad.ILWidget subclass: Field [
 	self conditions do: [:each |
 	    (each validate: self value) ifFalse: [
 		self errors add: (each labelFor: self value)]].
-	self markDirty
     ]
 
     commit [
@@ -99,18 +98,25 @@ Iliad.ILWidget subclass: Field [
 	action value: self value
     ]
 
-    contents [
+    buildContents [
 	<category: 'building'>
-	^[:table |
-	    table tr build: [:tr |
+	^Iliad.ILXHTMLElement new 
+	    build: self tableRowContents;
+	    yourself
+    ]
+
+    tableRowContents [
+	<category: 'building'>
+	^[:tbody|
+	    tbody tr build: [:tr |
 		self isValid ifFalse: [
 		    tr class: 'error'].
 		tr td 
 		    build: self labelBlock.
 		tr td 
-		    build: self fieldContents;
-		    build: self commentBlock;
-		    build: self errorsContents]]
+		    build: self fieldContents].
+	    tbody build: self commentContents.
+	    tbody build: self errorsContents]
     ]
 
     fieldContents [
@@ -118,14 +124,26 @@ Iliad.ILWidget subclass: Field [
 	self subclassResponsibility
     ]
 
+    commentContents [
+	<category: 'building'>
+	^[:tbody |
+	    tbody tr build: [:tr |
+		tr td.
+		tr td 
+		    class: 'comment';
+		    build: self commentBlock]]
+    ]
+
     errorsContents [
 	<category: 'building'>
-	^[:e |
+	^[:tbody |
 	    self errors notEmpty ifTrue: [
-		e div 
-		    class: 'errors';
-		    build: [:div |
-			div text: self errors first]]]
+		tbody tr build: [:tr |
+		    tr td.
+		    tr td div 
+			class: 'errors';
+			build: [:div |
+			    div text: self errors first]]]]
     ]
 
     isValid [
